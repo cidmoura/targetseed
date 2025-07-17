@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PIL - Plataforma Integrada de Licitações</title>
+    <meta name="description" content="Geração automática de documentos de licitação com base na Lei nº 14.133/2021">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>📋</text></svg>">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <span class="logo-p">P</span>
+                        <span class="logo-i">I</span>
+                        <span class="logo-l">L</span>
+                    </div>
+                    <div class="logo-text">
+                        <span class="logo-title">PIL</span>
+                        <span class="logo-subtitle">Plataforma Integrada de Licitações</span>
+                    </div>
+                </div>
+                <nav class="nav">
+                    <a href="#home" class="nav-link active">Início</a>
+                    <a href="#documentos" class="nav-link">Documentos</a>
+                    <a href="#historico" class="nav-link">Histórico</a>
+                    <a href="#ajuda" class="nav-link">Ajuda</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <!-- Hero Section -->
+            <section class="hero" id="home">
+                <div class="hero-content">
+                    <h1 class="hero-title">Geração Automática de Documentos de Licitação</h1>
+                    <p class="hero-description">
+                        Crie editais, termos de referência e minutas de contrato em conformidade com a Lei nº 14.133/2021 
+                        utilizando inteligência artificial avançada.
+                    </p>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-label">Conformidade Legal</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">90%</span>
+                            <span class="stat-label">Redução de Tempo</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">24/7</span>
+                            <span class="stat-label">Disponibilidade</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Document Generator Section -->
+            <section class="generator" id="documentos">
+                <div class="section-header">
+                    <h2 class="section-title">Gerador de Documentos</h2>
+                    <p class="section-description">Preencha as informações abaixo para gerar seu documento automaticamente</p>
+                </div>
+
+                <div class="generator-container">
+                    <form class="generator-form" id="documentForm">
+                        <div class="form-grid">
+                            <!-- Tipo de Documento -->
+                            <div class="form-group full-width">
+                                <label class="form-label" for="tipoDocumento">Tipo de Documento *</label>
+                                <select class="form-input" id="tipoDocumento" name="tipoDocumento" required>
+                                    <option value="">Selecione o tipo de documento</option>
+                                    <option value="edital">Edital de Licitação</option>
+                                    <option value="termo-referencia">Termo de Referência</option>
+                                    <option value="minuta-contrato">Minuta de Contrato</option>
+                                    <option value="aviso-licitacao">Aviso de Licitação</option>
+                                </select>
+                            </div>
+
+                            <!-- Objeto da Contratação -->
+                            <div class="form-group full-width">
+                                <label class="form-label" for="objeto">Objeto da Contratação *</label>
+                                <textarea class="form-input" id="objeto" name="objeto" placeholder="Descreva detalhadamente o objeto da contratação..." rows="3" required></textarea>
+                            </div>
+
+                            <!-- Modalidade -->
+                            <div class="form-group">
+                                <label class="form-label" for="modalidade">Modalidade *</label>
+                                <select class="form-input" id="modalidade" name="modalidade" required>
+                                    <option value="">Selecione a modalidade</option>
+                                    <option value="pregao-eletronico">Pregão Eletrônico</option>
+                                    <option value="pregao-presencial">Pregão Presencial</option>
+                                    <option value="concorrencia">Concorrência</option>
+                                    <option value="concurso">Concurso</option>
+                                    <option value="leilao">Leilão</option>
+                                    <option value="dialogo-competitivo">Diálogo Competitivo</option>
+                                </select>
+                            </div>
+
+                            <!-- Tipo de Licitação -->
+                            <div class="form-group">
+                                <label class="form-label" for="tipoLicitacao">Tipo de Licitação *</label>
+                                <select class="form-input" id="tipoLicitacao" name="tipoLicitacao" required>
+                                    <option value="">Selecione o tipo</option>
+                                    <option value="menor-preco">Menor Preço</option>
+                                    <option value="maior-desconto">Maior Desconto</option>
+                                    <option value="tecnica-preco">Técnica e Preço</option>
+                                    <option value="melhor-tecnica">Melhor Técnica</option>
+                                    <option value="conteudo-artistico">Conteúdo Artístico</option>
+                                </select>
+                            </div>
+
+                            <!-- Regime de Execução -->
+                            <div class="form-group">
+                                <label class="form-label" for="regimeExecucao">Regime de Execução *</label>
+                                <select class="form-input" id="regimeExecucao" name="regimeExecucao" required>
+                                    <option value="">Selecione o regime</option>
+                                    <option value="empreitada-global">Empreitada por Preço Global</option>
+                                    <option value="empreitada-unitario">Empreitada por Preço Unitário</option>
+                                    <option value="tarefa">Tarefa</option>
+                                    <option value="empreitada-integral">Empreitada Integral</option>
+                                </select>
+                            </div>
+
+                            <!-- Critério de Julgamento -->
+                            <div class="form-group">
+                                <label class="form-label" for="criterioJulgamento">Critério de Julgamento *</label>
+                                <select class="form-input" id="criterioJulgamento" name="criterioJulgamento" required>
+                                    <option value="">Selecione o critério</option>
+                                    <option value="menor-preco">Menor Preço</option>
+                                    <option value="maior-desconto">Maior Desconto</option>
+                                    <option value="melhor-combinacao">Melhor Combinação de Técnica e Preço</option>
+                                    <option value="melhor-tecnica">Melhor Técnica</option>
+                                    <option value="maior-lance">Maior Lance</option>
+                                </select>
+                            </div>
+
+                            <!-- Valor Estimado -->
+                            <div class="form-group">
+                                <label class="form-label" for="valorEstimado">Valor Estimado (R$)</label>
+                                <input type="text" class="form-input" id="valorEstimado" name="valorEstimado" placeholder="Ex: 100.000,00">
+                            </div>
+
+                            <!-- Prazo de Execução -->
+                            <div class="form-group">
+                                <label class="form-label" for="prazoExecucao">Prazo de Execução</label>
+                                <input type="text" class="form-input" id="prazoExecucao" name="prazoExecucao" placeholder="Ex: 12 meses">
+                            </div>
+
+                            <!-- Local de Execução -->
+                            <div class="form-group full-width">
+                                <label class="form-label" for="localExecucao">Local de Execução</label>
+                                <input type="text" class="form-input" id="localExecucao" name="localExecucao" placeholder="Endereço completo do local de execução">
+                            </div>
+
+                            <!-- Observações Adicionais -->
+                            <div class="form-group full-width">
+                                <label class="form-label" for="observacoes">Observações Adicionais</label>
+                                <textarea class="form-input" id="observacoes" name="observacoes" placeholder="Informações complementares relevantes..." rows="3"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-secondary" id="limparForm">Limpar Formulário</button>
+                            <button type="submit" class="btn btn-primary" id="gerarDocumento">
+                                <span class="btn-text">Gerar Documento</span>
+                                <span class="btn-loader" style="display: none;">
+                                    <svg class="spinner" viewBox="0 0 24 24">
+                                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none" stroke-dasharray="31.416" stroke-dashoffset="31.416">
+                                            <animate attributeName="stroke-dasharray" dur="2s" values="0 31.416;15.708 15.708;0 31.416" repeatCount="indefinite"/>
+                                        </circle>
+                                    </svg>
+                                </span>
+                            </button>
+                        </div>
+                    </form>
+
+                    <!-- Resultado -->
+                    <div class="result-container" id="resultContainer" style="display: none;">
+                        <div class="result-header">
+                            <h3 class="result-title">Documento Gerado</h3>
+                            <div class="result-actions">
+                                <button class="btn btn-outline" id="editarDocumento">Editar</button>
+                                <button class="btn btn-outline" id="downloadPDF">Download PDF</button>
+                                <button class="btn btn-primary" id="salvarHistorico">Salvar no Histórico</button>
+                            </div>
+                        </div>
+                        <div class="result-content" id="resultContent">
+                            <!-- Conteúdo do documento será inserido aqui -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Histórico Section -->
+            <section class="historico" id="historico" style="display: none;">
+                <div class="section-header">
+                    <h2 class="section-title">Histórico de Documentos</h2>
+                    <p class="section-description">Acesse seus documentos gerados anteriormente</p>
+                </div>
+                
+                <div class="historico-container">
+                    <div class="historico-filters">
+                        <input type="text" class="form-input" placeholder="Buscar por objeto ou tipo..." id="searchHistorico">
+                        <select class="form-input" id="filterTipo">
+                            <option value="">Todos os tipos</option>
+                            <option value="edital">Editais</option>
+                            <option value="termo-referencia">Termos de Referência</option>
+                            <option value="minuta-contrato">Minutas de Contrato</option>
+                        </select>
+                    </div>
+                    
+                    <div class="historico-list" id="historicoList">
+                        <!-- Lista de documentos será inserida aqui -->
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo">
+                        <div class="logo-icon">
+                            <span class="logo-p">P</span>
+                            <span class="logo-i">I</span>
+                            <span class="logo-l">L</span>
+                        </div>
+                        <div class="logo-text">
+                            <span class="logo-title">PIL</span>
+                            <span class="logo-subtitle">Plataforma Integrada de Licitações</span>
+                        </div>
+                    </div>
+                    <p class="footer-description">
+                        Soluções inteligentes para documentação de licitações públicas em conformidade com a Lei nº 14.133/2021.
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">Recursos</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">Gerador de Editais</a></li>
+                        <li><a href="#" class="footer-link">Termos de Referência</a></li>
+                        <li><a href="#" class="footer-link">Minutas de Contrato</a></li>
+                        <li><a href="#" class="footer-link">Biblioteca Jurídica</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">Suporte</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">Central de Ajuda</a></li>
+                        <li><a href="#" class="footer-link">Documentação</a></li>
+                        <li><a href="#" class="footer-link">Contato</a></li>
+                        <li><a href="#" class="footer-link">Status do Sistema</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">Termos de Uso</a></li>
+                        <li><a href="#" class="footer-link">Política de Privacidade</a></li>
+                        <li><a href="#" class="footer-link">Lei nº 14.133/2021</a></li>
+                        <li><a href="#" class="footer-link">Compliance</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 PIL - Plataforma Integrada de Licitações. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal de Edição -->
+    <div class="modal" id="editModal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Editar Documento</h3>
+                <button class="modal-close" id="closeEditModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <textarea class="form-input" id="editableContent" rows="20"></textarea>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="cancelEdit">Cancelar</button>
+                <button class="btn btn-primary" id="saveEdit">Salvar Alterações</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/demo-data.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
