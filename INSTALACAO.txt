@@ -1,0 +1,55 @@
+==========================================
+📋 PIL - PLATAFORMA INTEGRADA DE LICITAÇÕES
+==========================================
+
+🚀 INSTALAÇÃO RÁPIDA:
+
+1️⃣ OPÇÃO SIMPLES (SEM SERVIDOR):
+   - Extraia todos os arquivos
+   - Abra "index.html" no navegador
+   - Configure sua API Key da OpenAI
+   - Pronto para usar!
+
+2️⃣ OPÇÃO COMPLETA (COM SERVIDOR):
+   - Extraia todos os arquivos
+   - Instale Node.js (nodejs.org)
+   - Execute: npm install
+   - Execute: npm start
+   - Acesse: http://localhost:3000
+
+📋 ARQUIVOS INCLUSOS:
+   ✅ index.html - Interface principal
+   ✅ css/styles.css - Estilos visuais
+   ✅ js/app.js - Funcionalidade principal
+   ✅ js/demo-data.js - Exemplos práticos
+   ✅ server.js - Servidor opcional
+   ✅ package.json - Dependências
+   ✅ README.md - Documentação completa
+   ✅ QUICKSTART.md - Guia de início rápido
+
+🔑 API OPENAI:
+   - Acesse: platform.openai.com
+   - Crie uma conta
+   - Gere uma API Key
+   - Cole na plataforma quando solicitado
+
+💡 DICAS:
+   - Use os exemplos práticos inclusos
+   - Sempre revise os documentos gerados
+   - Mantenha sua API Key segura
+   - Consulte o README.md para detalhes
+
+⚖️ CONFORMIDADE:
+   - Lei nº 14.133/2021
+   - Modalidades: Pregão, Concorrência, etc.
+   - Documentos: Editais, Termos, Minutas
+
+🆘 SUPORTE:
+   - Consulte QUICKSTART.md
+   - Veja exemplos no README.md
+   - Verifique logs do navegador (F12)
+
+==========================================
+© 2024 PIL - Plataforma Integrada de Licitações
+Em conformidade com a Lei nº 14.133/2021
+==========================================
