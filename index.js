@@ -4,11 +4,18 @@ const db = require('./models');
 // Import routes
 const secretariaRoutes = require('./routes/secretariaRoutes');
 const planoAcademicoRoutes = require('./routes/planoAcademicoRoutes');
+const authRoutes = require('./routes/authRoutes');
+const userRoutes = require('./routes/userRoutes');
 
 const app = express();
+
+// Middleware
 app.use(express.json());
+app.use(express.static('public')); // Serve static files from public directory
 
 // API Routes
+app.use('/api/auth', authRoutes);
+app.use('/api/users', userRoutes);
 app.use('/api/secretarias', secretariaRoutes);
 app.use('/api/planos-academicos', planoAcademicoRoutes);
 

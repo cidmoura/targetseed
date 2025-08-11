@@ -2,6 +2,8 @@
 const {
   Model
 } = require('sequelize');
+const bcrypt = require('bcryptjs');
+
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     /**
@@ -19,12 +21,20 @@ module.exports = (sequelize, DataTypes) => {
         as: 'escola'
       });
     }
+
+    // Instance method to check password
+    validPassword(password) {
+      return bcrypt.compareSync(password, this.password);
+    }
   }
   User.init({
     email: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true
+      unique: true,
+      validate: {
+        isEmail: true
+      }
     },
     password: {
       type: DataTypes.STRING,
@@ -49,6 +59,12 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'User',
+    hooks: {
+      beforeCreate: (user) => {
+        const salt = bcrypt.genSaltSync(10);
+        user.password = bcrypt.hashSync(user.password, salt);
+      }
+    }
   });
   return User;
 };

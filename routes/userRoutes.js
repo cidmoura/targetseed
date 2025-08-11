@@ -1,0 +1,9 @@
+const express = require('express');
+const router = express.Router();
+const userController = require('../controllers/userController');
+const authMiddleware = require('../middleware/authMiddleware');
+
+// This route is protected by the authMiddleware
+router.get('/me', authMiddleware, userController.getCurrentUser);
+
+module.exports = router;
