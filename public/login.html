@@ -1,37 +1,192 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <style>
-        body { font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #f0f2f5; }
-        .login-container { background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        h1 { text-align: center; }
-        .form-group { margin-bottom: 1rem; }
-        label { display: block; margin-bottom: 0.5rem; }
-        input { width: 100%; padding: 0.5rem; border: 1px solid #ccc; border-radius: 4px; }
-        button { width: 100%; padding: 0.75rem; border: none; background-color: #007bff; color: white; border-radius: 4px; cursor: pointer; }
-        button:hover { background-color: #0056b3; }
-        .message { text-align: center; margin-top: 1rem; color: red; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login - NexEdu</title>
+
+  <!-- Fonte e ícones -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+  <style>
+    :root{
+      --bg:#f4f6f9;
+      --card:#ffffff;
+      --muted:#6b7280;
+      --text:#111827;
+      --brand-1:#1e3a8a;
+      --brand-2:#1e40af;
+      --accent:#3b82f6;
+      --radius:12px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      font-family:'Inter',sans-serif;
+      background: linear-gradient(180deg, #f7f9fc 0%, var(--bg) 100%);
+      color:var(--text);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:28px;
+    }
+    .login-container{
+      width:100%;
+      max-width:980px;
+      display:grid;
+      grid-template-columns: 420px 1fr;
+      gap:28px;
+      align-items:stretch;
+    }
+    .panel-brand{
+      background: linear-gradient(145deg,var(--brand-1),var(--brand-2));
+      color:white;
+      border-radius:18px;
+      padding:28px;
+      box-shadow:0 12px 40px rgba(16,24,40,0.12);
+      display:flex;
+      flex-direction:column;
+      gap:20px;
+      justify-content:center;
+    }
+    .brand-top{display:flex;align-items:center;gap:14px}
+    .logo-img{height:56px; border-radius:8px; background:rgba(255,255,255,0.06); padding:6px;}
+    .brand-title{font-size:1.5rem;font-weight:700;letter-spacing:-0.3px}
+    .brand-sub{color:rgba(255,255,255,0.9);font-weight:500}
+    .brand-desc{color:rgba(255,255,255,0.85);font-size:0.95rem;line-height:1.5}
+    .brand-features{margin-top:6px; display:flex; flex-direction:column; gap:10px}
+    .feature{display:flex;align-items:center;gap:10px;font-weight:500}
+    .feature i{background:rgba(255,255,255,0.08);padding:8px;border-radius:8px}
+    .panel-form{
+      background:var(--card);
+      border-radius:18px;
+      padding:28px;
+      box-shadow:0 10px 30px rgba(15,23,42,0.06);
+      border:1px solid #e6e9ef;
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+    }
+    .panel-form h1{font-size:1.35rem;margin-bottom:4px}
+    .panel-form p.lead{color:var(--muted);font-size:0.95rem;margin-bottom:8px}
+    .form-grid{display:flex;flex-direction:column;gap:12px}
+    .form-group{display:flex;flex-direction:column;gap:6px}
+    label{font-size:0.9rem;color:var(--muted);font-weight:600}
+    select,input{
+      height:46px;padding:10px 12px;border-radius:10px;border:1px solid #e6e9ef;
+      background:white;font-size:0.95rem;color:var(--text);
+      outline:none;transition: box-shadow .18s ease, border-color .18s ease;
+    }
+    select:focus,input:focus{box-shadow:0 6px 18px rgba(59,130,246,0.12);border-color:var(--accent)}
+    .password-wrap{position:relative;display:flex;align-items:center}
+    .password-wrap input{flex:1;padding-right:44px}
+    .toggle-pass{
+      position:absolute;right:8px;top:6px;height:34px;width:34px;border-radius:8px;border:none;
+      display:inline-flex;align-items:center;justify-content:center;background:transparent;cursor:pointer;color:var(--muted)
+    }
+    .btn{
+      height:50px;display:inline-flex;align-items:center;gap:10px;justify-content:center;border-radius:12px;
+      font-weight:700;padding:0 18px;border: none;cursor:pointer;
+    }
+    .btn-primary{
+      background:linear-gradient(90deg,var(--accent),#2563eb);color:white;box-shadow:0 8px 20px rgba(59,130,246,0.18);
+    }
+    .btn-primary i{opacity:0.95}
+    .demo-card{border-radius:12px;padding:12px;background:#fafbff;border:1px solid #eef2ff}
+    .demo-card h3{font-size:1rem;margin-bottom:8px}
+    .demo-table{width:100%;border-collapse:collapse;font-size:0.95rem;color:var(--muted)}
+    .demo-table td{padding:8px 10px;border-bottom:1px dashed #eef2ff}
+    .demo-table tr:last-child td{border-bottom:0}
+    .tag{display:inline-block;padding:6px 8px;border-radius:999px;background:#eef2ff;color:#1e3a8a;font-weight:600;font-size:0.82rem}
+    .login-foot{font-size:0.85rem;color:var(--muted);margin-top:6px}
+    .message { text-align: center; margin-top: 1rem; color: red; font-weight: 600; }
+    @media (max-width:980px){
+      .login-container{grid-template-columns:1fr;max-width:680px}
+      .panel-brand{order:2}
+      .panel-form{order:1}
+    }
+    @media (max-width:480px){
+      body{padding:18px}
+      .logo-img{height:48px}
+      .panel-form{padding:20px}
+      .panel-brand{padding:20px}
+    }
+  </style>
 </head>
 <body>
-    <div class="login-container">
-        <h1>Login</h1>
-        <form id="login-form">
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
+  <div class="login-container" role="main" aria-labelledby="login-title">
+    <aside class="panel-brand" aria-hidden="false">
+      <div class="brand-top">
+        <img src="https://i.imgur.com/KJOa2yL.png" alt="Logo NexEdu" class="logo-img" />
+        <div>
+          <div class="brand-title">NexEdu</div>
+          <div class="brand-sub">Plataforma Integrada de Gestão Escolar</div>
+        </div>
+      </div>
+      <p class="brand-desc">
+        Plataforma institucional para gestão escolar: controle de escolas, alunos, professores e relatórios.
+        Interface pensada para gestores municipais com experiência limpa e segura.
+      </p>
+      <div class="brand-features">
+        <div class="feature"><i data-lucide="shield-check"></i> Segurança e conformidade</div>
+        <div class="feature"><i data-lucide="bar-chart-2"></i> Relatórios intuitivos</div>
+        <div class="feature"><i data-lucide="zap"></i> Ações rápidas e integradas</div>
+      </div>
+      <div class="login-foot">Versão de demonstração — não use em produção.</div>
+    </aside>
+
+    <section class="panel-form" aria-labelledby="login-title">
+      <div>
+        <h1 id="login-title">Entrar no Sistema</h1>
+        <p class="lead">Acesse seu painel conforme seu perfil de usuário.</p>
+      </div>
+
+      <form class="login-form" novalidate>
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="perfil">Perfil de Acesso</label>
+            <select id="perfil" required aria-required="true">
+              <option value="">Selecione seu perfil</option>
+              <option value="sme">SME - Gestão Geral</option>
+              <option value="diretor">Diretor Escolar</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input id="email" type="email" placeholder="seu@email.gov.br" required />
+          </div>
+
+          <div class="form-group">
+            <label for="senha">Senha</label>
+            <div class="password-wrap">
+              <input id="senha" type="password" placeholder="********" required aria-describedby="show-pass" />
+              <button type="button" class="toggle-pass" id="show-pass" aria-label="Mostrar senha" title="Mostrar senha">
+                <i data-lucide="eye"></i>
+              </button>
             </div>
-            <div class="form-group">
-                <label for="password">Senha</label>
-                <input type="password" id="password" name="password" required>
-            </div>
-            <button type="submit">Entrar</button>
-        </form>
-        <div id="message" class="message"></div>
-    </div>
-    <script src="app.js"></script>
+          </div>
+          <div>
+            <button class="btn btn-primary" type="submit">
+              <i data-lucide="log-in"></i> Entrar
+            </button>
+          </div>
+          <div id="message-feedback" class="message"></div>
+        </div>
+      </form>
+
+      <div class="demo-card" aria-live="polite">
+        <h3>Logins de Demonstração</h3>
+        <table class="demo-table" role="table" aria-label="Logins de demonstração">
+          <tbody>
+            <tr><td><span class="tag">SME</span></td><td>sme@demo.gov.br</td><td>sme123</td></tr>
+            <tr><td><span class="tag">Diretor</span></td><td>diretor@alvorada.gov.br</td><td>diretor123</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+  <script src="app.js"></script>
 </body>
 </html>
